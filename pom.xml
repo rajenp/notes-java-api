@@ -62,9 +62,9 @@
         <groupId>org.xolstice.maven.plugins</groupId>
         <artifactId>protobuf-maven-plugin</artifactId>
         <version>0.6.1</version>
-        <configuration>
-          <protocExecutable>protoc</protocExecutable>
-        </configuration>
+<!--        <configuration>-->
+<!--          <protocExecutable>protoc</protocExecutable>-->
+<!--        </configuration>-->
         <executions>
           <execution>
             <goals>
