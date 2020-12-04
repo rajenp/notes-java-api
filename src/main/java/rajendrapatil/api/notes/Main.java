@@ -10,7 +10,7 @@ import rajendrapatil.api.redis.HerokuRedisConnector;
 import redis.clients.jedis.Jedis;
 
 @SpringBootApplication
-public class NotesApplication {
+public class Main {
 
   @Bean
   ProtobufHttpMessageConverter protobufHttpMessageConverter() {
@@ -29,6 +29,6 @@ public class NotesApplication {
   }
 
   public static void main(String[] args) {
-    SpringApplication.run(NotesApplication.class, args);
+    SpringApplication.run(Main.class, args);
   }
 }
