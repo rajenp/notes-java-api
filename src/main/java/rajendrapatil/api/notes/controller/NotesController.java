@@ -14,14 +14,15 @@ import rajendrapatil.api.notes.NoteOuter.Notes;
 import rajendrapatil.api.notes.UserNotes;
 import rajendrapatil.api.notes.impl.UserNotesImpl;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 @RestController
 public class NotesController {
 
   final UserNotes userNotes;
 
-  NotesController(@Autowired Jedis jedis) throws URISyntaxException {
-    userNotes = new UserNotesImpl(jedis);
+  NotesController(@Autowired JedisPool jedisPool) throws URISyntaxException {
+    userNotes = new UserNotesImpl(jedisPool);
   }
 
   @RequestMapping(value = "/{userId}/notes", method = RequestMethod.GET, produces = "application/json")

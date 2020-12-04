@@ -7,19 +7,22 @@ import rajendrapatil.api.notes.NoteOuter.Note;
 import rajendrapatil.api.notes.NoteOuter.Notes;
 import rajendrapatil.api.notes.UserNotes;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 public class UserNotesImpl implements UserNotes {
 
-  private final Jedis jedis;
+  private final JedisPool jedisPool;
 
-  public UserNotesImpl(Jedis jedis) {
-    this.jedis = jedis;
+  public UserNotesImpl(JedisPool pool) {
+    this.jedisPool = pool;
   }
 
   @Override
   public Notes getUserNotes(String userId) {
+    Jedis jedis = jedisPool.getResource();
     // time, content
     Map<String, String> notesMap = jedis.hgetAll("user#" + userId);
+    jedis.close();
     List<Note> userNotes = new ArrayList<>();
     for (String time : notesMap.keySet()) {
       userNotes.add(
@@ -33,19 +36,26 @@ public class UserNotesImpl implements UserNotes {
 
   @Override
   public boolean addUserNote(String userId, Note note) {
+    Jedis jedis = jedisPool.getResource();
     jedis.hset("user#" + userId, "" + note.getTime(), note.getContent());
+    jedis.close();
     return true;
   }
 
   @Override
   public boolean deleteUserNote(String userId, String time) {
+    Jedis jedis = jedisPool.getResource();
     jedis.hdel("user#" + userId, time);
+    jedis.close();
+
     return false;
   }
 
   @Override
   public boolean updateUserNote(String userId, Note note) {
+    Jedis jedis = jedisPool.getResource();
     jedis.hset("user#" + userId, "" + note.getTime(), note.getContent());
+    jedis.close();
     return true;
   }
 }
