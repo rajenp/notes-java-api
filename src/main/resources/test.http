@@ -1,0 +1,9 @@
+PUT https://rajendrapatil-api.herokuapp.com/rajendrapatil/notes/add
+Content-Type: application/json
+
+{
+  "time": 1,
+  "content": "Hello"
+}
+
+###
