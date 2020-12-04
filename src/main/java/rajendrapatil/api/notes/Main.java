@@ -6,9 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.protobuf.ProtobufHttpMessageConverter;
 import org.springframework.http.converter.protobuf.ProtobufJsonFormatHttpMessageConverter;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import rajendrapatil.api.redis.HerokuRedisConnector;
-import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 @SpringBootApplication
@@ -23,7 +21,6 @@ public class Main {
   ProtobufJsonFormatHttpMessageConverter protobufJsonFormatHttpMessageConverter() {
     return new ProtobufJsonFormatHttpMessageConverter();
   }
-
 
   @Bean(name = "pool")
   JedisPool jedisPool() throws URISyntaxException {

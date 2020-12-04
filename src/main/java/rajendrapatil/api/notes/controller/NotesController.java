@@ -14,11 +14,10 @@ import rajendrapatil.api.notes.NoteOuter.Note;
 import rajendrapatil.api.notes.NoteOuter.Notes;
 import rajendrapatil.api.notes.UserNotes;
 import rajendrapatil.api.notes.impl.UserNotesImpl;
-import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000", "https://rajendrapatil.herokuapp.com"})
+@CrossOrigin(maxAge = 3600)
 public class NotesController {
 
   final UserNotes userNotes;
