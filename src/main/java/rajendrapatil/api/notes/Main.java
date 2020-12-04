@@ -12,7 +12,6 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 @SpringBootApplication
-@CrossOrigin(origins = {"http://localhost:3000", "https://rajendrapatil.herokuapp.com"})
 public class Main {
 
   @Bean
