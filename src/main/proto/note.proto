@@ -1,0 +1,13 @@
+syntax = "proto3";
+package rajendrapatil.api.notes;
+option java_package = "rajendrapatil.api.notes";
+option java_outer_classname = "NoteOuter";
+
+message Note {
+  int64 time = 1;
+  string content = 2;
+}
+
+message Notes {
+  repeated Note notes = 1;
+}
