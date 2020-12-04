@@ -57,14 +57,15 @@
   </dependencies>
 
   <build>
+    <sourceDirectory>./src/main/java, ./src/main/proto/generated</sourceDirectory>
     <plugins>
-      <plugin>
+      <!--<plugin>
         <groupId>org.xolstice.maven.plugins</groupId>
         <artifactId>protobuf-maven-plugin</artifactId>
         <version>0.6.1</version>
-<!--        <configuration>-->
-<!--          <protocExecutable>protoc</protocExecutable>-->
-<!--        </configuration>-->
+        <configuration>
+          <outputDirectory>./src/main/proto/generated/</outputDirectory>
+        </configuration>
         <executions>
           <execution>
             <goals>
@@ -73,7 +74,7 @@
             </goals>
           </execution>
         </executions>
-      </plugin>
+      </plugin>-->
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
