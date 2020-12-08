@@ -1,4 +1,4 @@
-PUT https://rajendrapatil-api.herokuapp.com/rajendrapatil/notes/add
+PUT {{server}}/api/v1/{{user}}/notes/add
 Content-Type: application/json
 
 {

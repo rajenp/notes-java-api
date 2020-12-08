@@ -2,7 +2,7 @@ package rajendrapatil.api.redis;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import redis.clients.jedis.Jedis;
+
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 

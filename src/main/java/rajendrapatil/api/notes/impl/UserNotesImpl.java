@@ -37,6 +37,7 @@ public class UserNotesImpl implements UserNotes {
   @Override
   public boolean addUserNote(String userId, Note note) {
     Jedis jedis = jedisPool.getResource();
+    // Format is user#userId, time, contents
     jedis.hset("user#" + userId, "" + note.getTime(), note.getContent());
     jedis.close();
     return true;
